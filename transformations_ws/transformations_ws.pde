@@ -9,9 +9,9 @@ void setup() {
 void draw() {
   background(0);
   //discard Processing matrices
-  //resetMatrix();
+  resetMatrix();
   //set initial model-view and projection proscene matrices
-  //setUniforms();
+  setUniforms();
   fill(204, 102, 0, 150);
   rect(50,50,200,200);
   /*

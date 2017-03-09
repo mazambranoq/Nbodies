@@ -6,6 +6,8 @@
 // shaders personalizados.
 uniform mat4 unalModelMatrix;
 
+uniform mat4 projectionMatrix;
+
 // las variables attribute cambian de vertice a vertice. Aca tambien
 // Processing emite automaticamente algunas de estas variables, como 
 // 'vertex' (tambien llamada 'position'). A pesar de que los atributos
@@ -21,7 +23,7 @@ varying vec4 unalVertColor;
 
 void main() {
   // el vertex shader siempre debe computar la posicion final del vertice
-  gl_Position = unalModelMatrix * vertex;
+  gl_Position = projectionMatrix * unalModelMatrix * vertex;
   // tomamos el color del vertice y lo asociamos a la varying para que la
   // informacion se interpole en el siguiente estadio (fragment shader)
   unalVertColor = color;
