@@ -1,8 +1,21 @@
 PShader unalShader;
-PMatrix3D matrix;
+PMatrix3D modelview, projection;
+PMatrix3D projectionTimesModelview;
+final float FAKED_ZNEAR = -10;
+final float FAKED_ZFAR = 10;
+
 void setup() {
-  size(700, 700, P2D);
-  matrix = new PMatrix3D();
+  size(700, 700, P3D);
+  modelview = new PMatrix3D();
+  
+  projection = new PMatrix3D();
+  projection.m00 = 2.0f / width;
+  projection.m11 = -2.0f / height;
+  projection.m22 = -2.0f / (FAKED_ZFAR - FAKED_ZNEAR);
+  projection.m23 = -(FAKED_ZFAR + FAKED_ZNEAR) / (FAKED_ZFAR - FAKED_ZNEAR);
+  
+  projectionTimesModelview = new PMatrix3D();
+  
   unalShader = loadShader("frag.glsl", "vert.glsl");
 }
 
@@ -41,6 +54,7 @@ void draw() {
 // we need to update the shader:
 void setUniforms() {
   shader(unalShader);
-  matrix.reset();
-  unalShader.set("unalModelMatrix", matrix);
+  projectionTimesModelview.set(projection);
+  projectionTimesModelview.apply(modelview);
+  unalShader.set("unalMatrix", projectionTimesModelview);
 }

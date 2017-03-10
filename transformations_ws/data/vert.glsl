@@ -4,9 +4,7 @@
 // 'unalModelMatrix'. Notese que esta variable debe ser emitida manualmente
 // en el cuerpo del sketch, lo cual ocurre tipicamente cuando se van a emplear
 // shaders personalizados.
-uniform mat4 unalModelMatrix;
-
-uniform mat4 projectionMatrix;
+uniform mat4 unalMatrix;
 
 // las variables attribute cambian de vertice a vertice. Aca tambien
 // Processing emite automaticamente algunas de estas variables, como 
@@ -23,7 +21,8 @@ varying vec4 unalVertColor;
 
 void main() {
   // el vertex shader siempre debe computar la posicion final del vertice
-  gl_Position = projectionMatrix * unalModelMatrix * vertex;
+  gl_Position = unalMatrix * vertex;
+  
   // tomamos el color del vertice y lo asociamos a la varying para que la
   // informacion se interpole en el siguiente estadio (fragment shader)
   unalVertColor = color;
