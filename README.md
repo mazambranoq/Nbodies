@@ -9,7 +9,7 @@ Estudiar algunas aplicaciones de las transformaciones geométricas.
 1. Implemente una demo (Processing o p5.js) de un grafo de escena cualquiera, agregando el sketch correspondiente en la carpeta `sketches`.
 2. Realice la presentación en markdown o en cualquier otro formato, de acuerdo a la [plantilla adjuntada](https://github.com/VisualComputing/Transformations_ws/blob/gh-pages/source.md) (disponible en la rama `gh-pages`). Si va a hacerlo en markdown, siga las indicaciones de la siguiente sección (*markdown slides*); si lo va a hacer en otro formato, suba la presentación correspondiente a la raíz del repo.
 
-Fecha límite Domingo 16/4/17, a las 24h.
+Fecha límite Domingo 16/4/17, a las 24h. Las presentaciones se realizarán en las clases del 17 al 20 de Abril.
 
 ## Markdown slides
 
